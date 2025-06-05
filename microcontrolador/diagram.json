@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -76.8, "left": -52.76, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": 27.5, "left": -249.8, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -278.1, "left": -34.2, "attrs": {} },
+    { "type": "wokwi-hc-sr04", "id": "ultrasonic1", "top": -17.7, "left": 322.3, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "dht1:VCC", "esp:3V3", "red", [ "h-67.2", "v96" ] ],
+    [ "dht1:GND", "esp:GND.2", "black", [ "v0", "h67.2", "v96", "h-9.6" ] ],
+    [ "dht1:SDA", "esp:4", "green", [ "v28.8", "h163.3", "v201.6", "h-57.6" ] ],
+    [ "esp:5V", "ultrasonic1:VCC", "red", [ "h0.15", "v67.2", "h422.4" ] ],
+    [ "esp:5", "ultrasonic1:TRIG", "green", [ "h163.2", "v105.6", "h163.2" ] ],
+    [ "ultrasonic1:ECHO", "esp:18", "green", [ "v57.6", "h-308", "v-134.4" ] ],
+    [ "ultrasonic1:GND", "esp:GND.2", "black", [ "v0", "h94.8", "v-144" ] ],
+    [ "pot1:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "pot1:GND", "esp:GND.2", "black", [ "v38.4", "h105.6", "v-240", "h163.2" ] ],
+    [ "pot1:SIG", "esp:34", "green", [ "v19.2", "h124.4", "v-124.8" ] ]
+  ],
+  "dependencies": {}
+}
